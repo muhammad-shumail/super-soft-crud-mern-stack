@@ -192,6 +192,14 @@ a {
   flex-direction: column;
 }
 
+.title {
+  font-size: 48px;
+  line-height: 1.2;
+  font-weight: 700;
+  letter-spacing: -2px;
+  margin-bottom: 8px;
+}
+
 .loginbackground-gridContainer {
   display: -ms-grid;
   display: grid;
@@ -229,7 +237,7 @@ a {
 }
 
 .padding-top--64 {
-  padding-top: 64px;
+  padding-top: 120px;
 }
 
 .padding-top--24 {

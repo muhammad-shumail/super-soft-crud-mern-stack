@@ -1,5 +1,7 @@
 {
+  "name": "super-soft-crud-mern-stack",
   "private": true,
+  "author": "Muhammad Shumail",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

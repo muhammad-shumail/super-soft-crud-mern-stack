@@ -137,7 +137,7 @@ const Form = ({ formId, studentForm, forNewStudent = true }: Props) => {
     <>
       <div className="login-root">
         <div className="box-root flex-flex flex-direction--column" style={{ minHeight: '100vh', flexGrow: 1 }}>
-          <div className="fullPageBackground loginbackground box-background--white padding-top--24">
+          <div className="fullPageBackground loginbackground box-background--white padding-top--64">
             <div className="loginbackground-gridContainer">
               <div className="box-root flex-flex" style={{ gridArea: 'top / start / 8 / end' }}>
                 <div className="box-root" style={{ backgroundImage: 'linear-gradient(white 0%, rgb(247, 250, 252) 33%)', flexGrow: 1 }}>
@@ -171,7 +171,7 @@ const Form = ({ formId, studentForm, forNewStudent = true }: Props) => {
           </div>
           <div className="box-root padding-top--24 flex-flex flex-direction--column" style={{ flexGrow: 1, zIndex: 9 }}>
             <div className="box-root padding-top--48 padding-bottom--24 flex-flex flex-justifyContent--center">
-              <h1>Create a new account for the Student Portal</h1>
+              <h1 className='title'>Create a new account for the Student Portal</h1>
             </div>
             <div className="twoColumnForm formbg-outer">
               <div className="formbg">
@@ -244,6 +244,13 @@ const Form = ({ formId, studentForm, forNewStudent = true }: Props) => {
                         maxLength={60}
                         value={form.subjects}
                         onChange={handleChange}
+                        rows={7}
+                        cols={40}
+                        style={
+                          {
+                            resize: 'none', overflow: 'auto', padding: '12px 20px', boxSizing: 'border-box',
+                          }
+                        }
                       />
                     </div>
 
@@ -262,9 +269,16 @@ const Form = ({ formId, studentForm, forNewStudent = true }: Props) => {
                       <label htmlFor="hobbies">Hobbies</label>
                       <textarea
                         name="hobbies"
-                        maxLength={60}
+                        maxLength={500}
                         value={form.hobbies}
                         onChange={handleChange}
+                        rows={7}
+                        cols={40}
+                        style={
+                          {
+                            resize: 'none', overflow: 'auto', padding: '12px 20px', boxSizing: 'border-box',
+                          }
+                        }
                       />
                     </div>
 
@@ -275,6 +289,13 @@ const Form = ({ formId, studentForm, forNewStudent = true }: Props) => {
                         maxLength={60}
                         value={form.goals}
                         onChange={handleChange}
+                        rows={7}
+                        cols={40}
+                        style={
+                          {
+                            resize: 'none', overflow: 'auto', padding: '12px 20px', boxSizing: 'border-box',
+                          }
+                        }
                       />
                     </div>
 

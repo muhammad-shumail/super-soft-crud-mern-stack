@@ -17,11 +17,11 @@ const Index = ({ students }: Props) => {
             <h5 className="student-name">{student.name}</h5>
             <div className="main-content">
               <p className="student-name">{student.name}</p>
-              <p className="owner">Owner: {student.father_name}</p>
+              <p className="owner">Father {student.father_name}</p>
 
               {/* Extra Student Info: Likes and Dislikes */}
               <div className="hobbies info">
-                <p className="label">Likes</p>
+                <p className="label">Hobbies</p>
                 <ul>
                   {student.hobbies.map((data, index) => (
                     <li key={index}>{data} </li>
@@ -29,7 +29,7 @@ const Index = ({ students }: Props) => {
                 </ul>
               </div>
               <div className="goals info">
-                <p className="label">Dislikes</p>
+                <p className="label">Goals</p>
                 <ul>
                   {student.goals.map((data, index) => (
                     <li key={index}>{data} </li>

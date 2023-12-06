@@ -8,21 +8,51 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
-        <title>Student Care App</title>
+        <title>Student Portal App</title>
       </Head>
+      <header>
+        <div className="head_container">
+          <div className="logo">
+            <h1 className="logo">Student Portal</h1>
+          </div>
+          <div className="menu" id="myTopnav">
+            <ul>
 
-      <div className="top-bar">
-        <div className="nav">
-          <Link href="/">Home</Link>
-          <Link href="/new">Add Student</Link>
+              <li>
+                <Link href="/">Home</Link>
+              </li>
+              <li>
+                <Link href="/new">Add Student</Link>
+              </li>
+              <li>
+                <Link
+                  href="https://www.linkedin.com/in/muhammad-shumail-ansari/"
+                  className="text-white hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium"
+                  target="_blank"
+                >
+                  Linkedin Profile
+                </Link>
+                <Link
+                  href="https://github.com/muhammad-shumail"
+                  className="text-white hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium"
+                  target="_blank"
+                >
+                  Github Profile
+                </Link>
+                <Link
+                  href="https://github.com/muhammad-shumail/super-soft-technology-project"
+                  className="text-white hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium"
+                  target="_blank"
+                >
+                  Github Repo
+                </Link>
+              </li>
+
+            </ul>
+          </div>
         </div>
+      </header>
 
-        <img
-          id="title"
-          src="https://upload.wikimedia.org/wikipedia/commons/1/1f/Pet_logo_with_flowers.png"
-          alt="student care logo"
-        ></img>
-      </div>
       <div className="wrapper grid">
         <Component {...pageProps} />
       </div>
