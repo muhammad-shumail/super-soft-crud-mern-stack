@@ -1,47 +1,47 @@
+import { GetServerSideProps } from 'next'
 import Link from 'next/link'
 import dbConnect from '../lib/dbConnect'
-import Pet, { Pets } from '../models/Pet'
-import { GetServerSideProps } from 'next'
+import Student, { Students } from '../models/Students'
 
 type Props = {
-  pets: Pets[]
+  students: Students[]
 }
 
-const Index = ({ pets }: Props) => {
+const Index = ({ students }: Props) => {
   return (
     <>
-      {pets.map((pet) => (
-        <div key={pet._id}>
+      {students.map((student) => (
+        <div key={student._id}>
           <div className="card">
-            <img src={pet.image_url} />
-            <h5 className="pet-name">{pet.name}</h5>
+            <img src={student.photo_url} />
+            <h5 className="student-name">{student.name}</h5>
             <div className="main-content">
-              <p className="pet-name">{pet.name}</p>
-              <p className="owner">Owner: {pet.owner_name}</p>
+              <p className="student-name">{student.name}</p>
+              <p className="owner">Owner: {student.father_name}</p>
 
-              {/* Extra Pet Info: Likes and Dislikes */}
-              <div className="likes info">
+              {/* Extra Student Info: Likes and Dislikes */}
+              <div className="hobbies info">
                 <p className="label">Likes</p>
                 <ul>
-                  {pet.likes.map((data, index) => (
+                  {student.hobbies.map((data, index) => (
                     <li key={index}>{data} </li>
                   ))}
                 </ul>
               </div>
-              <div className="dislikes info">
+              <div className="goals info">
                 <p className="label">Dislikes</p>
                 <ul>
-                  {pet.dislikes.map((data, index) => (
+                  {student.goals.map((data, index) => (
                     <li key={index}>{data} </li>
                   ))}
                 </ul>
               </div>
 
               <div className="btn-container">
-                <Link href={{ pathname: '/[id]/edit', query: { id: pet._id } }}>
+                <Link href={{ pathname: '/[id]/edit', query: { id: student._id } }}>
                   <button className="btn edit">Edit</button>
                 </Link>
-                <Link href={{ pathname: '/[id]', query: { id: pet._id } }}>
+                <Link href={{ pathname: '/[id]', query: { id: student._id } }}>
                   <button className="btn view">View</button>
                 </Link>
               </div>
@@ -53,20 +53,20 @@ const Index = ({ pets }: Props) => {
   )
 }
 
-/* Retrieves pet(s) data from mongodb database */
+/* Retrieves student(s) data from mongodb database */
 export const getServerSideProps: GetServerSideProps<Props> = async () => {
   await dbConnect()
 
   /* find all the data in our database */
-  const result = await Pet.find({})
+  const result = await Student.find({})
 
   /* Ensures all objectIds and nested objectIds are serialized as JSON data */
-  const pets = result.map((doc) => {
-    const pet = JSON.parse(JSON.stringify(doc))
-    return pet
+  const students = result.map((doc) => {
+    const student = JSON.parse(JSON.stringify(doc))
+    return student
   })
 
-  return { props: { pets: pets } }
+  return { props: { students: students } }
 }
 
 export default Index

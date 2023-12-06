@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next'
-import dbConnect from '../../../lib/dbConnect'
-import Pet from '../../../models/Pet'
+import dbConnect from '@/dbConnect'
+import Students from '../../../models/Students'
 
 export default async function handler(
   req: NextApiRequest,
@@ -16,11 +16,11 @@ export default async function handler(
   switch (method) {
     case 'GET' /* Get a model by its ID */:
       try {
-        const pet = await Pet.findById(id)
-        if (!pet) {
+        const student = await Students.findById(id)
+        if (!student) {
           return res.status(400).json({ success: false })
         }
-        res.status(200).json({ success: true, data: pet })
+        res.status(200).json({ success: true, data: student })
       } catch (error) {
         res.status(400).json({ success: false })
       }
@@ -28,14 +28,14 @@ export default async function handler(
 
     case 'PUT' /* Edit a model by its ID */:
       try {
-        const pet = await Pet.findByIdAndUpdate(id, req.body, {
+        const student = await Students.findByIdAndUpdate(id, req.body, {
           new: true,
           runValidators: true,
         })
-        if (!pet) {
+        if (!student) {
           return res.status(400).json({ success: false })
         }
-        res.status(200).json({ success: true, data: pet })
+        res.status(200).json({ success: true, data: student })
       } catch (error) {
         res.status(400).json({ success: false })
       }
@@ -43,7 +43,7 @@ export default async function handler(
 
     case 'DELETE' /* Delete a model by its ID */:
       try {
-        const deletedPet = await Pet.deleteOne({ _id: id })
+        const deletedPet = await Students.deleteOne({ _id: id })
         if (!deletedPet) {
           return res.status(400).json({ success: false })
         }

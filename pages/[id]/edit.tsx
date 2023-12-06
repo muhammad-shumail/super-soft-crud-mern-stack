@@ -11,28 +11,28 @@ const EditPet = () => {
   const router = useRouter()
   const { id } = router.query
   const {
-    data: pet,
+    data: student,
     error,
     isLoading,
-  } = useSWR(id ? `/api/pets/${id}` : null, fetcher)
+  } = useSWR(id ? `/api/students/${id}` : null, fetcher)
 
   if (error) return <p>Failed to load</p>
   if (isLoading) return <p>Loading...</p>
-  if (!pet) return null
+  if (!student) return null
 
-  const petForm = {
-    name: pet.name,
-    owner_name: pet.owner_name,
-    species: pet.species,
-    age: pet.age,
-    poddy_trained: pet.poddy_trained,
-    diet: pet.diet,
-    image_url: pet.image_url,
-    likes: pet.likes,
-    dislikes: pet.dislikes,
+  const studentForm = {
+    name: student.name,
+    father_name: student.father_name,
+    student_class: student.student_class,
+    age: student.age,
+    attendance: student.attendance,
+    subjects: student.subjects,
+    photo_url: student.photo_url,
+    hobbies: student.hobbies,
+    goals: student.goals,
   }
 
-  return <Form formId="edit-pet-form" petForm={petForm} forNewPet={false} />
+  return <Form formId="edit-student-form" studentForm={studentForm} forNewStudent={false} />
 }
 
 export default EditPet

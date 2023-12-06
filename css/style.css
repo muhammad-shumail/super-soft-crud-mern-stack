@@ -11,6 +11,7 @@
   height: 80px;
   text-align: right;
 }
+
 #title {
   position: absolute;
   left: 20px;
@@ -18,10 +19,12 @@
   display: inline-block;
   height: 100%;
 }
+
 .nav {
   height: 100%;
   display: inline-block;
 }
+
 .nav a {
   margin: 0 20px;
   font-size: 120%;
@@ -92,12 +95,12 @@
   font-size: 110%;
 }
 
-.pet-name {
+.student-name {
   font-weight: bold;
   font-size: 130%;
 }
 
-h5.pet-name {
+h5.student-name {
   color: white;
   position: absolute;
   left: 0;
@@ -123,7 +126,7 @@ li {
   overflow: hidden;
 }
 
-.info.likes {
+.info.hobbies {
   margin-top: 25px;
 }
 
@@ -172,11 +175,13 @@ li {
   margin-left: 10px;
 }
 
-/* Delete Pet */
-.pet-container {
+/* Delete Student */
+.student-container {
   width: 100%;
 }
 
 .confirmation-box.show {
   display: block;
 }
+
+
